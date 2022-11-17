@@ -7,7 +7,7 @@ The file contents should look like this:
 	ENTROPY_INFO_CHAT_ID=your_chat_id_here
 
 ## With docker
-First do `docker build -t entropy-bot . network host`
+First do `docker build -t entropy-bot . --network host`
 
 Then do `docker run -d --restart unless-stopped --name --volume ./:/ entropy-bot`
 
