@@ -11,7 +11,7 @@ First install docker.
 
 Third do `docker build -t entropy-bot . --network host`
 
-Then do `docker run --restart unless-stopped --name entropy-bot -v "$(pwd)":/memory --user "$(id -u)":"$(id -g)" entropy-bot`
+Then do `docker -d run --restart unless-stopped --name entropy-bot -v "$(pwd)":/memory --user "$(id -u)":"$(id -g)" entropy-bot`
 
 OR
 
