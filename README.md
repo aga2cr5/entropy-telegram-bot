@@ -9,7 +9,7 @@ The file contents should look like this:
 ## With docker
 First do `docker build -t entropy-bot . --network host`
 
-Then do `docker run -d --restart unless-stopped --name --volume ./:/ entropy-bot`
+Then do `docker run --restart unless-stopped --name entropy-bot -v "$(pwd)":/memory --user 1000:1000 entropy-bot`
 
 ## Alternative way
 First install requirements via terminal by typing:
