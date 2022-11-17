@@ -7,9 +7,15 @@ The file contents should look like this:
 	ENTROPY_INFO_CHAT_ID=your_chat_id_here
 
 ## With docker
-First do `docker build -t entropy-bot . --network host`
+First install docker.
+
+Third do `docker build -t entropy-bot . --network host`
 
 Then do `docker run --restart unless-stopped --name entropy-bot -v "$(pwd)":/memory --user 1000:1000 entropy-bot`
+
+OR
+
+Install docker, run `chmod +x install.sh` in terminal and then run `install.sh` in terminal.
 
 ## Alternative way
 First install requirements via terminal by typing:
