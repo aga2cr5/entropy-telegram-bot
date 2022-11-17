@@ -11,7 +11,11 @@ from dotenv import load_dotenv
 import os
 
 # luodaan kansio events memory tiedostolle
-os.mkdir("./memory")
+try:
+    print("Yritetään luoda ./memory hakemistoa")
+    os.mkdir("./memory")
+except FileExistsError:
+    print("Hakemisto on jo olemassa")
 
 load_dotenv()
 
@@ -32,7 +36,7 @@ class Event:
         return info
     
     def get_small_info(self):
-        info = self.name + " - " + self.date
+        info = self.url
         return info
 
 
@@ -108,7 +112,7 @@ async def send_message_entropy() -> None:
 
 
 def main():
-    schedule.every(10).seconds.do(send_message_entropy)
+    schedule.every(1).hours.do(send_message_entropy)
     loop = asyncio.get_event_loop()
     while True:
         try:
