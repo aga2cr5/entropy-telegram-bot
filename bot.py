@@ -10,6 +10,8 @@ from datetime import date
 from dotenv import load_dotenv
 import os
 
+# luodaan kansio events memory tiedostolle
+os.mkdir("./memory")
 
 load_dotenv()
 
@@ -67,7 +69,7 @@ async def get_events():
 
 
 def set_last_event(event) -> None:
-    with open("last_posted_event.txt", 'r+') as file:
+    with open("./memory/last_posted_event.txt", 'r+') as file:
         data = file.readlines()
         if data != event:
             file.seek(0)
@@ -79,14 +81,14 @@ def set_last_event(event) -> None:
 
 def get_last_event():
     try:
-        with open("last_posted_event.txt", 'r') as file:
+        with open("./memory/last_posted_event.txt", 'r') as file:
             data = file.readlines()
             if len(data) > 0:
                 return data[0]
             return None
     except FileNotFoundError:
         print("Kyseistä tiedostoa ei löydy hakemistosta.\nLuodaan tiedosto tapahtumien tallentamista varten\n")
-        with open("last_posted_event.txt", 'w') as file:
+        with open("./memory/last_posted_event.txt", 'w') as file:
             print("Uusi tiedosto luotu tapahtumien tallentamista varten.\n")
         return None
 
